@@ -20,6 +20,8 @@ public class Contact {
         this.id = instances.size();
     }
 
+    public static Contact findById(int id) { return instances.get(id-1);}
+
     public String getName() {
         return name;
     }

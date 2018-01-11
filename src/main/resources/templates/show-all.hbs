@@ -9,10 +9,11 @@
             <p>{{this.address.city}}</p>
             <p>{{this.address.state}}</p>
             <p>{{this.address.postalCode}}</p>
-
+            <p><a href="contacts/{{this.id}}/update">update info</a> </p>
+            <p><a href="contacts/{{this.id}}/delete">delete entry</a></p>
         {{/each}}
     {{else}}
-        <p>No places</p>
+        <p>No Contacts</p>
     {{/if}}
 
 {{/partial}}
