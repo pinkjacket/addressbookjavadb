@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <h1>Contacts:</h1>
+    {{#if contacts}}
+        {{#each contacts}}
+            <h3>{{name}}</h3>
+            <p>{{phone}}</p>
+            <p>{{email}}</p>
+            <p>{{this.address.streetAddress}}</p>
+            <p>{{this.address.city}}</p>
+            <p>{{this.address.state}}</p>
+            <p>{{this.address.postalCode}}</p>
+
+        {{/each}}
+    {{else}}
+        <p>No places</p>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

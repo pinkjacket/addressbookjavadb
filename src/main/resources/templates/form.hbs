@@ -1,0 +1,55 @@
+{{#partial "content"}}
+    {{#if editContact}}
+        <h1>Edit this contact</h1>
+        <form action="contacts/{{editContact.id}}/update" method="post">
+            <label for="name">Edit name</label>
+            <input id="name" name="name" type="text" value="{{editContact.name}}">
+            <br>
+            <label for="phone">Edit name</label>
+            <input id="phone" name="phone" type="text" value="{{editContact.phone}}">
+            <br>
+            <label for="email">Edit email</label>
+            <input id="email" name="email" type="text" value="{{editContact.email}}">
+            <br>
+            <label for="streetAddress">Edit street address</label>
+            <input id="streetAddress" name="streetAddress" type="text" value="{{editContact.address.streetAddress}}">
+            <br>
+            <label for="city">Edit city</label>
+            <input id="city" name="city" type="text" value="{{editContact.address.city}}">
+            <br>
+            <label for="state">Edit state</label>
+            <input id="state" name="state" type="text" value="{{editContact.address.state}}">
+            <br>
+            <label for="postalCode">Edit postal code</label>
+            <input id="postalCode" name="postalCode" type="text" value="{{editContact.address.postalCode}}">
+    {{else}}
+            <h1>Add a new contact:</h1>
+            <form action="contacts/new" method="post">
+                <label for="name">Edit name</label>
+                <input id="name" name="name" type="text">
+                <br>
+                <label for="phone">Edit name</label>
+                <input id="phone" name="phone" type="text">
+                <br>
+                <label for="email">Edit email</label>
+                <input id="email" name="email" type="text">
+                <br>
+                <label for="streetAddress">Edit street address</label>
+                <input id="streetAddress" name="streetAddress" type="text">
+                <br>
+                <label for="city">Edit city</label>
+                <input id="city" name="city" type="text">
+                <br>
+                <label for="state">Edit state</label>
+                <input id="state" name="state" type="text">
+                <br>
+                <label for="postalCode">Edit postal code</label>
+                <input id="postalCode" name="postalCode" type="text">
+    {{/if}}
+        <button type="submit" class="btn btn-default">Add</button>
+    </form>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
