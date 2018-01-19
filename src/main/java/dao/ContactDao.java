@@ -12,11 +12,10 @@ public interface ContactDao {
     //read
     List<Contact> getAll();
     List<Address> getAllAddressesByContact(int contactId);
-//
     Contact findById(int id);
 
     //update
-//    void update(int id, String name);
+    void update(int id, String name);
 
     //delete
 //    void deleteById(int id);

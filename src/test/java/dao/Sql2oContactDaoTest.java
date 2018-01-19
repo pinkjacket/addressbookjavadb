@@ -78,6 +78,17 @@ public class Sql2oContactDaoTest {
         assertFalse(contactDao.getAllAddressesByContact(contactId).contains(thirdAddress));
     }
 
+    @Test
+    public void updateChangesContactName() throws Exception {
+        String initialName = "Jean";
+        Contact contact = new Contact (initialName);
+        contactDao.add(contact);
+
+        contactDao.update(contact.getId(),"Isaac");
+        Contact updatedContact = contactDao.findById(contact.getId());
+        assertNotEquals(initialName, updatedContact.getName());
+    }
+
     public Contact setupNewContact(){
         return new Contact("Jean");
     }
