@@ -14,7 +14,7 @@ public interface AddressDao {
 
     Address findById(int id);
     //update
-      void update(int id, String newStreetAddress);
+      void update(int id, String newStreetAddress, int contactId);
     //delete
    void deleteAddress(int id);
 

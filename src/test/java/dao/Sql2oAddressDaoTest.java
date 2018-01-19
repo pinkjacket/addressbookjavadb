@@ -56,7 +56,7 @@ public class Sql2oAddressDaoTest {
         Address address = new Address (initialAddress);
         addressDao.add(address);
 
-        addressDao.update(address.getId(), "2500 SW Fifth");
+        addressDao.update(address.getId(), "2500 SW Fifth", 1);
         Address updatedAddress = addressDao.findById(address.getId());
         assertNotEquals(initialAddress, updatedAddress.getStreetAddress());
     }

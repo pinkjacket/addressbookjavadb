@@ -47,7 +47,7 @@ public class Sql2oAddressDao implements AddressDao {
     }
 
     @Override
-    public void update(int id, String newAddress){
+    public void update(int id, String newAddress, int contactId){
         String sql = "UPDATE addresses SET streetAddress = :streetAddress WHERE id=:id";
         try(Connection con = sql2o.open()){
             con.createQuery(sql)

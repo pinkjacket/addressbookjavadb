@@ -8,9 +8,11 @@ public class Address {
 //    private String state;
 //    private String postalCode;
     private int id;
+    private int contactId;
 
     public Address(String streetAddress) {
         this.streetAddress = streetAddress;
+        this.contactId = contactId;
 //        this.city = city;
 //        this.state = state;
 //        this.postalCode = postalCode;
@@ -24,7 +26,15 @@ public class Address {
         this.id = id;
     }
 
-//    public void setCity(String city) {
+    public void setContactId(int contactId) {
+        this.contactId = contactId;
+    }
+
+    public int getContactId() {
+        return contactId;
+    }
+
+    //    public void setCity(String city) {
 //        this.city = city;
 //    }
 
