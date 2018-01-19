@@ -18,7 +18,7 @@ public class Sql2oContactDao implements ContactDao {
 
     @Override
     public void add(Contact contact) {
-        String sql = "INSERT INTO contact (name) VALUES (:name)";
+        String sql = "INSERT INTO contacts (name) VALUES (:name)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(contact)
