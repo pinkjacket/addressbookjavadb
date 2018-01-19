@@ -69,4 +69,14 @@ public class Sql2oAddressDaoTest {
         assertEquals(0, addressDao.getAll().size());
     }
 
+    @Test
+    public void clearAllClearsAll() throws Exception {
+        Address address = new Address("1955 SW Regency");
+        Address nextAddress = new Address("2500 SW Fifth");
+        addressDao.add(address);
+        addressDao.add(nextAddress);
+        int daoSize = addressDao.getAll().size();
+        addressDao.clearAllAddresses();
+        assertTrue(daoSize > 0 && daoSize > addressDao.getAll().size());
+    }
 }

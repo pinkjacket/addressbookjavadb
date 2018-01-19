@@ -70,4 +70,15 @@ public class Sql2oAddressDao implements AddressDao {
             System.out.println(ex);
         }
     }
+
+    @Override
+    public void clearAllAddresses() {
+        String sql = "DELETE from address";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }

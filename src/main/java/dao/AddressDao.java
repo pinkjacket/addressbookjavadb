@@ -18,6 +18,6 @@ public interface AddressDao {
     //delete
    void deleteAddress(int id);
 
-//   void clearAllAddresses();
+   void clearAllAddresses();
 
 }
