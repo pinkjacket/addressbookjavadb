@@ -3,12 +3,6 @@
     {{#if contacts}}
         {{#each contacts}}
             <h3>{{name}}</h3>
-            <p>{{phone}}</p>
-            <p>{{email}}</p>
-            <p>{{this.address.streetAddress}}</p>
-            <p>{{this.address.city}}</p>
-            <p>{{this.address.state}}</p>
-            <p>{{this.address.postalCode}}</p>
             <p><a href="contacts/{{this.id}}/update">update info</a> </p>
             <p><a href="contacts/{{this.id}}/delete">delete entry</a></p>
         {{/each}}

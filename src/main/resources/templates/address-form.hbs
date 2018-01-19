@@ -1,0 +1,49 @@
+{{#partial "content"}}
+
+    {{#if editAddress}}
+        <form action="/addresses/update" method="post">
+            <h1>Edit this Address!</h1>
+            <select id="addressToEditId" name="addressToEditId">
+                {{#each addresses }}
+                    <option value="{{id}}">{{streetAddress}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <label for="streetAddress">Edit this address</label>
+            <input id="streetAddress" name="streetAddress" type="text" placeholder="Enter a new address">
+            <br>
+            <label for="contactId">Update the contact this address is for:</label>
+            <select id="contactId" name="contactId">
+                {{#each contacts}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <p>Don't see the right contact?<a href="/contacts/new">Add a new one first.</a></p>
+
+    {{else}}
+            <h1>Add a new address!</h1>
+
+        <form action="/addresses/new" method="post">
+        {{#if contacts}}
+            <label for="streetAddress">Address</label>
+            <input id="streetAddress" name="streetAddress" type="text">
+            <label for="contactId">Whose address is this?:</label>
+
+            <select id="contactId" name="contactId">
+
+                {{#each contacts}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <p>Don't see the right contact?<a href="/contacts/new">Add a new one first.</a></p>
+        {{else}}
+                <h3> You'll need to add a contact before you can add any addresses. <a href="/contacts/new">Add one here.</a></h3>
+
+        {{/if}}
+
+    {{/if}}
+        <button type="submit" class="btn btn-default">Go!</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

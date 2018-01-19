@@ -4,18 +4,12 @@ package models;
 public class Address {
 
     private String streetAddress;
-//    private String city;
-//    private String state;
-//    private String postalCode;
     private int id;
     private int contactId;
 
     public Address(String streetAddress, int contactId) {
         this.streetAddress = streetAddress;
         this.contactId = contactId;
-//        this.city = city;
-//        this.state = state;
-//        this.postalCode = postalCode;
     }
 
     public void setStreetAddress(String streetAddress) {
@@ -34,17 +28,6 @@ public class Address {
         return contactId;
     }
 
-    //    public void setCity(String city) {
-//        this.city = city;
-//    }
-
-//    public void setState(String state) {
-//        this.state = state;
-//    }
-
-//    public void setPostalCode(String postalCode) {
-//        this.postalCode = postalCode;
-//    }
 
     @Override
     public boolean equals(Object o) {
@@ -73,23 +56,4 @@ public class Address {
     public int getId() {
         return id;
     }
-
-    //    public String getCity() {
-//        return city;
-//    }
-//
-//    public String getState() {
-//        return state;
-//    }
-//
-//    public String getPostalCode() {
-//        return postalCode;
-//    }
-
-//    public void updateAddress(String streetAddress, String city, String state, String postalCode) {
-//        this.streetAddress = streetAddress;
-//        this.city = city;
-//        this.state = state;
-//        this.postalCode = postalCode;
-//    }
 }

@@ -1,0 +1,26 @@
+{{#partial "content"}}
+
+    {{#if editContact}}
+        <h1>Edit this contact!</h1>
+        <form action="/contacts/update" method="post">
+            <select name="editContactId" id="editContactId">
+                {{#each contacts }}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <label for="name">Edit this contact's name</label>
+            <input id="newContactName" name="newContactName" type="text" placeholder="new contact name">
+
+    {{else}}
+            <h1>Add a new Contact!</h1>
+
+        <form action="/contacts" method="post">
+            <label for="name">Category Name</label>
+            <input id="name" name="name" type="text">
+
+    {{/if}}
+        <button type="submit" class="btn btn-default">Go!</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}

@@ -1,0 +1,21 @@
+{{#partial "content"}}
+    <p>Here are all the addresses for this person:   {{contact.name}} </p>
+
+    <ul>
+        {{#each addresses}}
+            <p>
+            <h5> Address:</h5>
+            <p>{{streetAddress}}</p>
+            <br>
+            <a href="/addresses/update">Edit this address</a><br>
+            <a href="/addresses/delete">DELETE this address</a>
+            </p>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/contacts/update">Edit this contact</a><br>
+    <a href="/contacts/delete">DELETE this contact</a>
+
+{{/partial}}
+
+{{> layout.hbs}}

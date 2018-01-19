@@ -1,0 +1,12 @@
+{{#partial "content"}}
+
+    <p>Address:</p>
+
+    <p>{{ address.streetAddress }}</p>
+        <a href="/addresses/update">Edit this address</a><br>
+        <a href="/contacts/{{address.contactId}}/addresses/{{address.id}}/delete">DELETE this address</a>
+    </p>
+
+{{/partial}}
+
+{{> layout.hbs}}
