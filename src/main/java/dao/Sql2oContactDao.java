@@ -33,7 +33,7 @@ public class Sql2oContactDao implements ContactDao {
     @Override
     public Contact findById(int id) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM contact WHERE id = :id")
+            return con.createQuery("SELECT * FROM contacts WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Contact.class);
         }
