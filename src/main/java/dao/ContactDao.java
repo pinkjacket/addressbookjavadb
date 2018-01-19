@@ -10,8 +10,8 @@ public interface ContactDao {
     void add (Contact contact);
 
     //read
-//    List<Contact> getAll();
-//    List<Address> getAllAddressesByContact(int contactId);
+    List<Contact> getAll();
+    List<Address> getAllAddressesByContact(int contactId);
 //
     Contact findById(int id);
 

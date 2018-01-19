@@ -31,7 +31,7 @@ public class Sql2oAddressDaoTest {
 
     @Test
     public void addingAddressSetsId() throws Exception {
-        Address address = new Address ("1955 SW Regency");
+        Address address = new Address ("1955 SW Regency", 1);
         int originalAddressId = address.getId();
         addressDao.add(address);
         assertNotEquals(originalAddressId, address.getId());
@@ -39,7 +39,7 @@ public class Sql2oAddressDaoTest {
 
     @Test
     public void existingAddressCanBeFoundById() throws Exception {
-        Address address = new Address ("1955 SW Regency");
+        Address address = new Address ("1955 SW Regency", 1);
         addressDao.add(address);
         Address foundAddress = addressDao.findById(address.getId());
         assertEquals(address, foundAddress);
@@ -53,7 +53,7 @@ public class Sql2oAddressDaoTest {
     @Test
     public void updateChangesStreetAddress() throws Exception {
         String initialAddress = "1955 SW Regency";
-        Address address = new Address (initialAddress);
+        Address address = new Address (initialAddress, 1);
         addressDao.add(address);
 
         addressDao.update(address.getId(), "2500 SW Fifth", 1);
@@ -63,7 +63,7 @@ public class Sql2oAddressDaoTest {
 
     @Test
     public void deleteAddressDeletesCorrectAddress() throws Exception {
-        Address address = new Address ("1955 SW Regency");
+        Address address = new Address ("1955 SW Regency", 1);
         addressDao.add(address);
         addressDao.deleteAddress(address.getId());
         assertEquals(0, addressDao.getAll().size());
@@ -71,8 +71,8 @@ public class Sql2oAddressDaoTest {
 
     @Test
     public void clearAllClearsAll() throws Exception {
-        Address address = new Address("1955 SW Regency");
-        Address nextAddress = new Address("2500 SW Fifth");
+        Address address = new Address("1955 SW Regency", 1);
+        Address nextAddress = new Address("2500 SW Fifth", 2);
         addressDao.add(address);
         addressDao.add(nextAddress);
         int daoSize = addressDao.getAll().size();

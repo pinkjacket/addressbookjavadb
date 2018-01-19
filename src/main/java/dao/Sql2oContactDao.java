@@ -38,4 +38,21 @@ public class Sql2oContactDao implements ContactDao {
                     .executeAndFetchFirst(Contact.class);
         }
     }
+
+    @Override
+    public List<Contact> getAll() {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM contacts")
+                    .executeAndFetch(Contact.class);
+        }
+    }
+
+    @Override
+    public List<Address> getAllAddressesByContact(int contactId) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM addresses WHERE contactId = :contactId")
+                    .addParameter("contactId", contactId)
+                    .executeAndFetch(Address.class);
+        }
+    }
 }

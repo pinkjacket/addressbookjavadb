@@ -10,7 +10,7 @@ public class Address {
     private int id;
     private int contactId;
 
-    public Address(String streetAddress) {
+    public Address(String streetAddress, int contactId) {
         this.streetAddress = streetAddress;
         this.contactId = contactId;
 //        this.city = city;
@@ -54,6 +54,7 @@ public class Address {
         Address address = (Address) o;
 
         if (id != address.id) return false;
+        if (contactId != address.contactId) return false;
         return streetAddress != null ? streetAddress.equals(address.streetAddress) : address.streetAddress == null;
     }
 
@@ -61,6 +62,7 @@ public class Address {
     public int hashCode() {
         int result = streetAddress != null ? streetAddress.hashCode() : 0;
         result = 31 * result + id;
+        result = 31 * result + contactId;
         return result;
     }
 

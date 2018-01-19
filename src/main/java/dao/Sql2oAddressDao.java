@@ -17,10 +17,13 @@ public class Sql2oAddressDao implements AddressDao {
 
     @Override
     public void add(Address address) {
-        String sql = "INSERT INTO addresses (streetAddress) VALUES (:streetAddress)";
+        String sql = "INSERT INTO addresses (streetAddress, contactId) VALUES (:streetAddress, :contactId)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql)
-                    .bind(address)
+                    .addParameter("streetAddress", address.getStreetAddress())
+                    .addParameter("contactId", address.getContactId())
+                    .addColumnMapping("STREETADDRESS", "streetAddress")
+                    .addColumnMapping("CONTACTID", "contactId")
                     .executeUpdate()
                     .getKey();
             address.setId(id);

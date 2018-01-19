@@ -48,7 +48,35 @@ public class Sql2oContactDaoTest {
         assertEquals(contact, foundContact);
     }
 
+    @Test
+    public void addedContactsAreReturnedFromGetAll() throws Exception {
+        Contact contact = setupNewContact();
+        contactDao.add(contact);
+        assertEquals(1, contactDao.getAll().size());
+    }
 
+    @Test
+    public void noContactsReturnsEmptyList() throws Exception {
+        assertEquals(0, contactDao.getAll().size());
+    }
+
+    @Test
+    public void getAllAddressesByContactReturnsThemCorrectly() throws Exception {
+        Contact contact = setupNewContact();
+        contactDao.add(contact);
+        int contactId = contact.getId();
+        Address newAddress = new Address("the beach", contactId);
+        Address otherAddress = new Address("your place", contactId);
+        Address thirdAddress = new Address("at work", contactId);
+        addressDao.add(newAddress);
+        addressDao.add(otherAddress);
+
+
+        assertTrue(contactDao.getAllAddressesByContact(contactId).size() == 2);
+        assertTrue(contactDao.getAllAddressesByContact(contactId).contains(newAddress));
+        assertTrue(contactDao.getAllAddressesByContact(contactId).contains(otherAddress));
+        assertFalse(contactDao.getAllAddressesByContact(contactId).contains(thirdAddress));
+    }
 
     public Contact setupNewContact(){
         return new Contact("Jean");
