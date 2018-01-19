@@ -7,8 +7,6 @@ public class Contact {
     private String name;
     private String phone;
     private String email;
-    private Address address;
-    private static ArrayList<Contact> instances = new ArrayList<>();
     private int id;
 
     public Contact(String name, String phone, String email, Address address) {
@@ -16,8 +14,6 @@ public class Contact {
         this.phone = phone;
         this.email = email;
         this.address = address;
-        instances.add(this);
-        this.id = instances.size();
     }
 
     public static Contact findById(int id) { return instances.get(id-1);}
