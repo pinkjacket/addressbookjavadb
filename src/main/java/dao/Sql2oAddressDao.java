@@ -45,4 +45,17 @@ public class Sql2oAddressDao implements AddressDao {
                     .executeAndFetchFirst(Address.class); //fetch an individual item
         }
     }
+
+    @Override
+    public void update(int id, String newAddress){
+        String sql = "UPDATE addresses SET streetAddress = :streetAddress WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("streetAddress", newAddress)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }

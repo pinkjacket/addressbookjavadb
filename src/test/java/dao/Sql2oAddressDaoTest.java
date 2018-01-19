@@ -50,5 +50,17 @@ public class Sql2oAddressDaoTest {
         assertEquals(0, addressDao.getAll().size());
     }
 
+    @Test
+    public void updateChangesStreetAddress() throws Exception {
+        String initialAddress = "1955 SW Regency";
+        Address address = new Address (initialAddress);
+        addressDao.add(address);
+
+        addressDao.update(address.getId(), "2500 SW Fifth");
+        Address updatedAddress = addressDao.findById(address.getId());
+        assertNotEquals(initialAddress, updatedAddress.getStreetAddress());
+    }
+
+
 
 }
