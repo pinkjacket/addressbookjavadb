@@ -58,7 +58,7 @@ public class Sql2oContactDao implements ContactDao {
 
     @Override
     public void update(int id, String newName){
-        String sql = "UPDATE contact SET name = :name WHERE id=:id";
+        String sql = "UPDATE contacts SET name = :name WHERE id=:id";
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
                     .addParameter("name", newName)
