@@ -13,7 +13,7 @@ public interface ContactDao {
 //    List<Contact> getAll();
 //    List<Address> getAllAddressesByContact(int contactId);
 //
-//    Contact findById(int id);
+    Contact findById(int id);
 
     //update
 //    void update(int id, String name);

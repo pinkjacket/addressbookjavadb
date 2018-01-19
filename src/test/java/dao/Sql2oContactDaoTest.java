@@ -40,6 +40,16 @@ public class Sql2oContactDaoTest {
         assertNotEquals(originalContactId, contact.getId());
     }
 
+    @Test
+    public void existingContactsCanBeFoundById() throws Exception {
+        Contact contact = setupNewContact();
+        contactDao.add(contact);
+        Contact foundContact = contactDao.findById(contact.getId());
+        assertEquals(contact, foundContact);
+    }
+
+
+
     public Contact setupNewContact(){
         return new Contact("Jean");
     }

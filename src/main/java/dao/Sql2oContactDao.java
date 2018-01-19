@@ -29,4 +29,13 @@ public class Sql2oContactDao implements ContactDao {
             System.out.println(ex);
         }
     }
+
+    @Override
+    public Contact findById(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM contact WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Contact.class);
+        }
+    }
 }
