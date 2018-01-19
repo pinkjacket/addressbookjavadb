@@ -64,7 +64,7 @@ public class Sql2oAddressDao implements AddressDao {
         String sql = "DELETE from addresses WHERE id=:id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("i", id)
+                    .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);
