@@ -18,7 +18,7 @@ public interface ContactDao {
     void update(int id, String name);
 
     //delete
-//    void deleteById(int id);
-//    void clearAllContacts();
+    void deleteById(int id);
+    void clearAllContacts();
 
 }

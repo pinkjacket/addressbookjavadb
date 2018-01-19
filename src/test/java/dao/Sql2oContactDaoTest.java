@@ -89,6 +89,25 @@ public class Sql2oContactDaoTest {
         assertNotEquals(initialName, updatedContact.getName());
     }
 
+    @Test
+    public void deleteByIdDeletesCorrectContact() throws Exception {
+        Contact contact = setupNewContact();
+        contactDao.add(contact);
+        contactDao.deleteById(contact.getId());
+        assertEquals(0, contactDao.getAll().size());
+    }
+
+    @Test
+    public void clearAllClearsAll() throws Exception {
+        Contact contact = setupNewContact();
+        Contact otherContact = new Contact("Isaac");
+        contactDao.add(contact);
+        contactDao.add(otherContact);
+        int daoSize = contactDao.getAll().size();
+        contactDao.clearAllContacts();
+        assertTrue(daoSize > 0 && daoSize > contactDao.getAll().size());
+    }
+
     public Contact setupNewContact(){
         return new Contact("Jean");
     }
