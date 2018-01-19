@@ -61,6 +61,12 @@ public class Sql2oAddressDaoTest {
         assertNotEquals(initialAddress, updatedAddress.getStreetAddress());
     }
 
-
+    @Test
+    public void deleteAddressDeletesCorrectAddress() throws Exception {
+        Address address = new Address ("1955 SW Regency");
+        addressDao.add(address);
+        addressDao.deleteAddress(address.getId());
+        assertEquals(0, addressDao.getAll().size());
+    }
 
 }
