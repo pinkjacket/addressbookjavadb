@@ -38,7 +38,17 @@ public class Sql2oAddressDaoTest {
     }
 
     @Test
+    public void existingAddressCanBeFoundById() throws Exception {
+        Address address = new Address ("1955 SW Regency");
+        addressDao.add(address);
+        Address foundAddress = addressDao.findById(address.getId());
+        assertEquals(address, foundAddress);
+    }
+
+    @Test
     public void noAddressesReturnsEmptyList() throws Exception {
         assertEquals(0, addressDao.getAll().size());
     }
+
+
 }
