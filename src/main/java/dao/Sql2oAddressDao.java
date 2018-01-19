@@ -73,7 +73,7 @@ public class Sql2oAddressDao implements AddressDao {
 
     @Override
     public void clearAllAddresses() {
-        String sql = "DELETE from address";
+        String sql = "DELETE from addresses";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .executeUpdate();
