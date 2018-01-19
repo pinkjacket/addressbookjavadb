@@ -1,3 +1,9 @@
+package dao;
+
+import models.Address;
+
+import java.util.List;
+
 public interface AddressDao {
 
     //create

@@ -4,40 +4,44 @@ package models;
 public class Address {
 
     private String streetAddress;
-    private String city;
-    private String state;
-    private String postalCode;
+//    private String city;
+//    private String state;
+//    private String postalCode;
     private int id;
 
-    public Address(String streetAddress, String city, String state, String postalCode) {
+    public Address(String streetAddress) {
         this.streetAddress = streetAddress;
-        this.city = city;
-        this.state = state;
-        this.postalCode = postalCode;
+//        this.city = city;
+//        this.state = state;
+//        this.postalCode = postalCode;
     }
 
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+//    public void setCity(String city) {
+//        this.city = city;
+//    }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
+//    public void setState(String state) {
+//        this.state = state;
+//    }
+
+//    public void setPostalCode(String postalCode) {
+//        this.postalCode = postalCode;
+//    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Address address = (address) o;
+        Address address = (Address) o;
 
         if (id != address.id) return false;
         return streetAddress != null ? streetAddress.equals(address.streetAddress) : address.streetAddress == null;
@@ -45,8 +49,7 @@ public class Address {
 
     @Override
     public int hashCode() {
-        int result = description != null ? description.hashCode() : 0;
-        result = 31 * result + (completed ? 1 : 0);
+        int result = streetAddress != null ? streetAddress.hashCode() : 0;
         result = 31 * result + id;
         return result;
     }
@@ -55,17 +58,21 @@ public class Address {
         return streetAddress;
     }
 
-    public String getCity() {
-        return city;
+    public int getId() {
+        return id;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
+    //    public String getCity() {
+//        return city;
+//    }
+//
+//    public String getState() {
+//        return state;
+//    }
+//
+//    public String getPostalCode() {
+//        return postalCode;
+//    }
 
 //    public void updateAddress(String streetAddress, String city, String state, String postalCode) {
 //        this.streetAddress = streetAddress;
