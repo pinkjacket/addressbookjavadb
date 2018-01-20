@@ -28,15 +28,15 @@ public class Sql2oAddressDao implements AddressDao {
                     .getKey();
             address.setId(id);
         } catch (Sql2oException ex) {
-            System.out.println(ex); //oops we have an error!
+            System.out.println(ex);
         }
     }
 
     @Override
     public List<Address> getAll() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM addresses") //raw sql
-                    .executeAndFetch(Address.class); //fetch a list
+            return con.createQuery("SELECT * FROM addresses")
+                    .executeAndFetch(Address.class);
         }
     }
 
@@ -44,8 +44,8 @@ public class Sql2oAddressDao implements AddressDao {
     public Address findById(int id) {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM addresses WHERE id = :id")
-                    .addParameter("id", id) //key/value pair, key must match above
-                    .executeAndFetchFirst(Address.class); //fetch an individual item
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Address.class);
         }
     }
 

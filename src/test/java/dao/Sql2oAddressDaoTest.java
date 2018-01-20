@@ -20,7 +20,6 @@ public class Sql2oAddressDaoTest {
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         addressDao = new Sql2oAddressDao(sql2o);
 
-        //keep connection open through entire test so it does not get erased.
         conn = sql2o.open();
     }
 
