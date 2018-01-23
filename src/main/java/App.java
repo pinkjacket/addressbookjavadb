@@ -95,7 +95,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: delete all addresses
-        get("/tasks/delete", (req, res) -> {
+        get("/addresses/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
 
             List<Contact> allContacts = contactDao.getAll();
@@ -121,9 +121,9 @@ public class App {
 
             List<Contact> allContacts = contactDao.getAll();
             model.put("contacts", allContacts);
-            String name = request.queryParams("name");
+            String streetAddress = request.queryParams("streetAddress");
             int newContactId = Integer.parseInt(request.queryParams("contactId"));
-            Address newAddress = new Address(name, newContactId);
+            Address newAddress = new Address(streetAddress, newContactId);
             addressDao.add(newAddress);
             model.put("address", newAddress);
             return new ModelAndView(model, "success.hbs");

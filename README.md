@@ -16,12 +16,6 @@ _Enter your friends as contacts, then assign them multiple addresses! What more 
 * _Navigate to localhost in your browser_
 * _Use!_
 
-
-## Known bugs
-
-_Addresses beyond the first will appear as invisible in some circumstances. They still exist, and you can edit them, and THEN they might show up, but right now I'm not really sure why and I just need time to fix it that I don't currently have._
-
-
 ## Technologies Used
 
 _Java_
